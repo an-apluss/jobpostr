@@ -1,0 +1,48 @@
+@layout('layouts.master')
+
+@section('extra_css')
+  {{ style('css/form') }}
+@endsection
+
+@section('title')
+  Edit a job | Jobpostr
+@endsection
+
+@section('content')
+  <h1 class="header">Edit a Job</h1>
+
+  <div class="job-container"">
+    @if(flashMessage('message'))
+      <span>{{ flashMessage('message') }}</span>
+    @endif
+    <form action="{{ route('update.job', { id: job.id }) + '?_method=PATCH' }}" method="POST">
+      {{ csrfField() }}
+
+      <label for="title">Job Title</label>
+      <input type="text" name="title" value="{{ job.title }}">
+      @if(hasErrorFor('title'))
+        <span>
+          {{ getErrorFor('title') }}
+        </span>
+      @endif
+
+      <label for="link">Link URL</label>
+      <input type="text" name="link" value="{{ job.link }}">
+      @if(hasErrorFor('link'))
+        <span>
+          {{ getErrorFor('link') }}
+        </span>
+      @endif
+
+      <label for="description">Description</label>
+      <input type="text" name="description" value="{{ job.description }}">
+      @if(hasErrorFor('description'))
+        <span>
+          {{ getErrorFor('description') }}
+        </span>
+      @endif
+
+      <button type="submit">Update Job</button>
+    </form>
+  </div>
+@endsection

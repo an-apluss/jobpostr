@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jobpostr</title>
+  <style>
+    table {
+      width: 450px;
+      padding: 50px;
+      border: 1px solid #84ebda;
+      margin: 0 auto;
+    }
+
+    .font-weight--bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>
+        <h4>Dear {{ username }},</h4>
+        <p>
+          Thank yoou for choosing 
+          <span class="font-weight--bold">Jobpostr</span>. 
+          This is to notify you that your job as been successfully created on our platform titled
+          <span class="font-weight--bold">{{ title }}</span>.
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
